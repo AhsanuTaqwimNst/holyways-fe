@@ -3,7 +3,6 @@ import React, { useState, useContext, useEffect } from "react";
 import Raise from "./assets/raise.png";
 import "./assets/css/navbar.css";
 import Register from "./auth/Register";
-import Profil from "./assets/profil.png";
 import Profile from "./assets/profile.png";
 import Logout from "./assets/logout 1.png";
 import Button from "react-bootstrap/Button";

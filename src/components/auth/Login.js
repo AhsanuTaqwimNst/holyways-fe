@@ -1,17 +1,16 @@
-import React, { useContext, useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import React, { useContext, useState } from "react";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 import { Alert } from "react-bootstrap";
-import { useMutation } from 'react-query';   
-import { API } from '../../config/api';
-import {UserContext} from '../../context/userContext'
-import { useNavigate } from 'react-router-dom';
+import { useMutation } from "react-query";
+import { API } from "../../config/api";
+import { UserContext } from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 function Login({ show, setShow, setShowRegister }) {
   let navigate = useNavigate();
   const [state, dispatch] = useContext(UserContext);
   const [message, setMessage] = useState(null);
-
 
   const [form, setForm] = useState({
     email: "",
@@ -42,9 +41,8 @@ function Login({ show, setShow, setShowRegister }) {
         type: "LOGIN_SUCCESS",
         payload,
       });
-      
-      navigate("/");
 
+      navigate("/");
     } catch (e) {
       console.log(e);
       const alert = <Alert variant="danger">Wrong email or password</Alert>;
@@ -59,50 +57,63 @@ function Login({ show, setShow, setShowRegister }) {
   };
   return (
     <>
-     <Modal show={show} onHide={handleClose} centered>
-            <Modal.Header>
-              <Modal.Title>
-                <h2>Login</h2>
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {message && message}
-              <Form onSubmit={(e) => handleSubmit.mutate(e)}>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlInput1"
-                >
-                  <Form.Label></Form.Label>
-                  <Form.Control type="email" placeholder="Email" name="email" value={email} onChange={handleChange} autoFocus />
-                </Form.Group>
-                <Form.Group
-                  className="mb-3"
-                  controlId="exampleForm.ControlInput1"
-                >
-                  <Form.Label></Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <button className="btn  btn-lg btn-danger w-100 text-white  " variant="primary" size="md" type="submit">
-                  Login
-                </button>
-                <div className="  text-center mb-3 mt-3 ">
-                  Don't have an account ?  <span 
-                  onClick={() => {
-                    setShow(false)
-                    setShowRegister(true)
-                  }} style={{ cursor: "pointer",fontWeight:"bold",color:"orange" }}
-                  >Register Here</span>
-                </div>
-              </Form>
-            </Modal.Body>
-          </Modal>
-    
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header>
+          <Modal.Title>
+            <h2>Login</h2>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {message && message}
+          <Form onSubmit={(e) => handleSubmit.mutate(e)}>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label></Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label></Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <button
+              className="btn  btn-lg btn-danger w-100 text-white  "
+              variant="primary"
+              size="md"
+              type="submit"
+            >
+              Login
+            </button>
+            <div className="  text-center mb-3 mt-3 ">
+              Don't have an account ?{" "}
+              <span
+                onClick={() => {
+                  setShow(false);
+                  setShowRegister(true);
+                }}
+                style={{
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  color: "orange",
+                }}
+              >
+                Register Here
+              </span>
+            </div>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
