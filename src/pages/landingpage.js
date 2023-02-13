@@ -47,6 +47,7 @@ function Home() {
     }, [isLoading]);
   
     const navigate = useNavigate()
+    
     const handleGoToDetail = (id) => {
         console.log(id);
         navigate(`DetailDonate/${id}`)

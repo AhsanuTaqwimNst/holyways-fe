@@ -37,7 +37,7 @@ function MyRaiseFund() {
     return ( 
         <div>
        
-        <div className='pt-5 '>
+        <div className='pt-5'>
             <div className="ml-lg-5 mb-2 row  justify-content-end">
                 <div className="col-lg-7"><h2> My Raise Fund</h2></div>
                 <button className='btn btn-danger col-lg-2 text-white bg-danger '

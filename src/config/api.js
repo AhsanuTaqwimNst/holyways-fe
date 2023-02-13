@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL:"https://holyways-be-production.up.railway.app/api/v1/"
+  baseURL:"holyways-be-production.up.railway.app/api/v1/"
 
 });
 
